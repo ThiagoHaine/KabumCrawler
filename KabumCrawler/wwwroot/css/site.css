@@ -1,0 +1,155 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+header, main, footer {
+    max-width: 1330px;
+    margin: auto;
+}
+nav {
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+}
+.btn-block{
+    display: block;
+    text-align: center;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: start;
+    transition: 0.5s all;
+    overflow: hidden;
+    max-height: 0px;
+}
+.btn-close-modal {
+    margin-left: auto;
+    display: block;
+}
+.modal.active {
+    padding-top: 5vh;
+    max-height: 100%
+}
+
+.modal-shadow {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-inner {
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    background-color: white;
+    padding: 15px;
+
+}
+.modal-body {
+    max-height: 80vh;
+    overflow: auto;
+}
+.Review {
+    border-bottom: 1px solid lightgray;
+    padding: 5px 0px;
+}
+.Review:last-child {
+    border-bottom: 0;
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+}
+.review-header p {
+    margin: 0;
+}
+.review-header strong {
+    color: #ff6500;
+    font-weight: 500;
+}
+a, button {
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: black;
+    padding: 10px 25px;
+    transition: 0.2s background-color;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+input {
+    border: 0;
+    padding: 10px 25px;
+}
+
+a:hover, button:hover {
+    background-color: #ffd1b2;
+}
+
+#main-logo {
+    width: 200px;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    padding: 38px 0px;
+    clip-path: inset(0px 1px -10px 2px);
+}
+
+footer{
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    border: 1px solid lightgray;
+}
+
+.input-group button {
+    width: 200px;
+}
+
+.input-group input {
+    width: calc(100% - 200px);
+}
+
+main {
+    padding: 25px 0px;
+}
+
+@media screen and (max-width: 650px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-group button {
+        width: 100px;
+    }
+
+    .input-group input {
+        width: calc(100% - 100px);
+    }
+}

@@ -1,0 +1,26 @@
+﻿@page
+@model KabumCrawler.Pages.ReviewsModel
+@{
+    Layout = null;
+}
+
+<ul class="ReviewList">
+    @if (Model.reviews.Count == 0)
+    {
+        <strong>Nenhuma avaliação encontrada neste produto</strong>
+    }
+    @foreach(var item in Model.reviews)
+    {
+        <li class="Review">
+            <div class="review-header">
+                <strong>@item.titulo</strong>
+                <p>Nota: @item.avaliacao</p>
+            </div>
+            <p>@item.opiniao</p>
+            <p><strong>Pro:</strong> @item.info_positivo</p>
+            <p><strong>Contra:</strong> @item.info_negativo</p>
+        </li>
+    }
+</ul>
+
+<a href="https://www.kabum.com.br/produto/@Model.productId" target="_blank" class="btn-block">Acessar página do produto</a>

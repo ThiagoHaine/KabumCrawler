@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kabum Crawler | @ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css"/>
+    <link rel="stylesheet" href="/css/search-result.css" />
+</head>
+<body>
+    <header>
+        <img id="main-logo" src="/images/kabum-logo.png" alt="Logo Kabum"/>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">Sobre</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <div class="modal">
+        <div class="modal-shadow" onclick="closeModal()"></div>
+        <div class="modal-inner">
+            <button class="btn-close-modal" onclick="closeModal()">Fechar</button>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+    <footer>
+        <p>Kabum Crawler @@ 2023</p>
+    </footer>
+    <script>
+        const modal = {
+            open: (content)=>{
+                let modalDiv = document.querySelector(".modal");
+
+                modalDiv.querySelector(".modal-body").innerHTML = content;
+                modalDiv.classList.add("active");
+                document.body.style.overflow = "hidden";
+            },
+            close: ()=>{
+                let modalDiv = document.querySelector(".modal");
+
+                modalDiv.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        }
+
+        function closeModal(){
+            modal.close();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@page
+@model KabumCrawler.Pages.SearchModel
+@{
+    Layout = null;
+}
+
+@foreach(var item in Model.products)
+{
+    <div class="productDiv @(item.isPromotional ? "promotional" : "") " data-id="@item.id">
+        @Html.Raw(item.image)
+        <div class="nameArea">
+            <p class="productName">@item.name</p>
+            @Html.Raw(item.rating)
+        </div>
+        <div class="productPrice">
+            @if (item.isPromotional)
+            {
+                <p class="oldPrice">@item.oldPrice</p>
+            }
+            <p class="price">@item.price</p>
+        </div>
+    </div>
+}

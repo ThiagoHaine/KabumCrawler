@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<form onsubmit="return search();">
+    <div class="input-group">
+        <input type="text" id="inputSearch" placeholder="Buscar..." required/>
+        <button type="submit">Buscar</button>
+    </div>
+</form>
+<div id="result"></div>
+
+<script>
+    let search = ()=>{
+        let string = document.querySelector("#inputSearch").value;
+        let resultArea = document.querySelector("#result");
+
+        resultArea.innerHTML = "<p class='wait'>Buscando...</p>";
+
+        fetch(`/search?query=${string}`).then(result=>{
+            result.text().then(text=>{
+                resultArea.innerHTML = text;
+
+                resultArea.querySelectorAll(".productDiv").forEach(el=>{
+                    
+                    el.addEventListener("click", ()=>openReviews(el.getAttribute("data-id")));
+                })
+            });
+        })
+        return false;
+    }
+
+    let openReviews = (id)=>{
+        modal.open("Carregando...");
+
+        fetch(`/reviews?productId=${id}`).then(result=>{
+            result.text().then(text=>{
+                modal.open(text);
+            })
+        })
+    }
+</script>
